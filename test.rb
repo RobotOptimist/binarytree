@@ -67,10 +67,14 @@ module BinaryTree
   end
 	
 	def self.from_array(array) 
-			tree = Node.new(array.shift)
-      array.each {|v| tree.insert v}    
+			Node.new(array.first).tap do |tree|
+      array.each {|v| tree.push v }
+    end  
   end
 	
+	
+	
 	x = [1,2,3,4,5,6]
+	
 	p BinaryTree.from_array(x)
 end
